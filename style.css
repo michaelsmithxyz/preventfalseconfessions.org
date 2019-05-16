@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600');
+
 html {
     box-sizing: border-box;
 }
@@ -6,9 +8,25 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    background-color: #F6F6F6;
+    max-width: 75rem;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
 .header__logo {
-    height: 6rem;
-    width: 6rem;
+    height: 6.25rem;
+    width: 6.25rem;
 
     display: flex;
     flex-direction: column;
@@ -19,7 +37,100 @@ html {
     border: 1px solid #F20048;
 }
 
+.header__nav {
+    margin-left: 0.5rem;
+    flex-grow: 1;
+    background-color: #7F90AB;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__list {
+    height: 80%;
+    width: 90%;
+    background-color: #F6F6F6;
+    padding: 0 0 0 0.5rem;
+    margin: 0;
+
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav__link {
+    color: #F20048;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: block;
+}
+
 .header__logo > img {
     width: 100%;
     height: auto;
+}
+
+.content {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.image_switcher__photo {
+    width: 100%;
+    height: auto;
+}
+
+.article {
+    padding: 0 0.5rem;
+}
+
+.article__header {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.petition {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.petition__link {
+    font-weight: 600;
+    color: #F20048;
+}
+
+.school_info {
+    padding: 0 0.5rem;
+    margin-top: 2rem;
+}
+
+.school_info__text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.school_info__img {
+    height: auto;
+    width: 100%;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    text-align: center;
+    font-size: 0.75em;
+    color: #C5C5C5;
+}
+
+.footer > a {
+    color: #616161;
+}
+
+.footer > a:visited {
+    color: inherit;
 }
