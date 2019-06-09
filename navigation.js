@@ -1,15 +1,15 @@
 function toggleNavigation() {
-    var header_nav = document.querySelector('.header__nav');
-    if (header_nav.classList.contains('active')) {
-        header_nav.classList.remove('active');
-    } else {
-        header_nav.classList.add('active');
-    }
+  const headerNav = document.querySelector('.header__nav');
+  if (headerNav.classList.contains('active')) {
+    headerNav.classList.remove('active');
+  } else {
+    headerNav.classList.add('active');
+  }
 }
 
 function handleDocumentLoad() {
-    var nav_handle = document.querySelector('.header__toggle');
-    nav_handle.addEventListener('click', toggleNavigation);
+  const navHandle = document.querySelector('.header__toggle');
+  navHandle.addEventListener('click', toggleNavigation);
 }
 
 document.addEventListener('DOMContentLoaded', handleDocumentLoad);
