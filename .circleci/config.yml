@@ -26,7 +26,7 @@ jobs:
           name: Install SSH
           command: |
               apt-get -y update
-              apt-get -y install openssh
+              apt-get -y install ssh
       - run:
           name: Keyscan target server
           command: |
