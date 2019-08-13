@@ -35,7 +35,7 @@ jobs:
       - deploy:
           name: deploy
           command: |
-              ssh $DEPLOY_USER@$DEPLOY_HOST 'bash ./deploy_preventfalseconfessions.sh'
+              ssh -p $SSH_PORT $DEPLOY_USER@$DEPLOY_HOST 'bash ./deploy_preventfalseconfessions.sh'
 
 workflows:
   version: 2
