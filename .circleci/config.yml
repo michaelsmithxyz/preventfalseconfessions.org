@@ -24,7 +24,9 @@ jobs:
             - "ce:33:23:22:42:a5:9c:8a:79:31:57:12:30:5a:ca:15"
       - run:
           name: Keyscan target server
-          command: ssh-keyscan -H -p $SSH_PORT $DEPLOY_HOST >> ~/.ssh/known_hosts
+          command: |
+              mkdir -p ~/.ssh
+              ssh-keyscan -H -p $SSH_PORT $DEPLOY_HOST >> ~/.ssh/known_hosts
       - deploy:
           name: deploy
           command: |
