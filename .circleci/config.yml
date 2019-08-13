@@ -23,6 +23,11 @@ jobs:
           fingerprints:
             - "ce:33:23:22:42:a5:9c:8a:79:31:57:12:30:5a:ca:15"
       - run:
+          name: Install SSH
+          command: |
+              apt-get -y update
+              apt-get -y install openssh
+      - run:
           name: Keyscan target server
           command: |
               mkdir -p ~/.ssh
