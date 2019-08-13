@@ -1,3 +1,4 @@
+version: 2
 jobs:
   build:
     docker:
@@ -12,3 +13,10 @@ jobs:
           docker build -t michaelsmithxyz/preventfalseconfessions.org:$TAG .
           echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
           docker push michaelsmithxyz/preventfalseconfessions.org:$TAG
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          context: docker michaelsmithxyz
