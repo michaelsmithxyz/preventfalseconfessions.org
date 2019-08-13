@@ -1,0 +1,14 @@
+jobs:
+  build:
+    docker:
+      - image: docker:stable
+    working_directory: ~/preventfalseconfessions.org
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: |
+          TAG=$CIRCLE_BRANCH
+          docker build -t michaelsmithxyz/preventfalseconfessions.org:$TAG .
+          echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
+          docker push michaelsmithxyz/preventfalseconfessions.org:$TAG
