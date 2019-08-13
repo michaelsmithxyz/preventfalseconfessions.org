@@ -14,9 +14,32 @@ jobs:
           echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
           docker push michaelsmithxyz/preventfalseconfessions.org:$TAG
 
+  deploy:
+    docker:
+      - image: ubuntu:18.04
+    working_directory: ~/preventfalseconfessions.org
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ce:33:23:22:42:a5:9c:8a:79:31:57:12:30:5a:ca:15"
+      - run:
+          name: Keyscan target server
+          command: ssh-keyscan -H -p $SSH_PORT $DEPLOY_HOST >> ~/.ssh/known_hosts
+      - deploy:
+          name: deploy
+          command: |
+              ssh $DEPLOY_USER@$DEPLOY_HOST 'bash ./deploy_preventfalseconfessions.sh'
+
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build:
           context: docker michaelsmithxyz
+      - deploy:
+          context: Web Server Prod
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
